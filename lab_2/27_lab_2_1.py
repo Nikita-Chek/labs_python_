@@ -1,13 +1,26 @@
 #sqrt_decomposition
 
+import sys
+import argparse
 import math
 
-array = input("input array: ").split()
-start = int(input("start: "))
-end = int(input("end: "))
+# array = input("input array: ").split()
+# start = int(input("start: "))
+# end = int(input("end: "))
 
-for _ in range(len(array)):     #from input string array to int array
-	array[_] = int(array[_])
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-a', '--args', nargs='+', type=int)
+parser.add_argument('-t', '--test', nargs='+', type=str)
+parser.add_argument('-s', type=int)
+parser.add_argument('-e', type=int)
+parser.add_argument('-c', type=bool)
+
+array = parser.parse_args().args
+start = parser.parse_args().s
+end = parser.parse_args().e
+flag = False
+flag = parser.parse_args().c
 
 def sum(array, start, end):
 	sum = 0
@@ -27,5 +40,13 @@ def sum(array, start, end):
 			start += 1
 	return sum
 
+def sum_chek(array, start, end):
+	sum = 0
+	for x in range(start, end+1):
+		sum += array[x]
+	return sum
+
 
 print(sum(array, start, end))
+if flag:
+	print(sum_chek(array, start, end))
