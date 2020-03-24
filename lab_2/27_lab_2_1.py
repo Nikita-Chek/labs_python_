@@ -7,11 +7,11 @@ import math
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-a', '--args', nargs='+', type=int)
-parser.add_argument('-s', type=int)
-parser.add_argument('-e', type=int)
-parser.add_argument('-c','--chek', type=bool)
-parser.add_argument('-f', '--file', type=bool)
+parser.add_argument('-a', '--args', nargs='+', type=int, help='input array')
+parser.add_argument('-s', type=int, help='start point')
+parser.add_argument('-e', type=int, help='end point')
+parser.add_argument('-c','--chek', type=bool, help='if you need to chek')
+parser.add_argument('-f', '--file', type=bool, help='if you need to input from file')
 
 array = parser.parse_args().args
 start = parser.parse_args().s
