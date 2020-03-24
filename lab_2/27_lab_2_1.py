@@ -11,7 +11,6 @@ import math
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-a', '--args', nargs='+', type=int)
-parser.add_argument('-t', '--test', nargs='+', type=str)
 parser.add_argument('-s', type=int)
 parser.add_argument('-e', type=int)
 parser.add_argument('-c', type=bool)
