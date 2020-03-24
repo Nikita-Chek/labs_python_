@@ -13,13 +13,14 @@ parser.add_argument('-e', type=int, help='end point')
 parser.add_argument('-c','--chek', type=bool, help='if you need to chek')
 parser.add_argument('-f', '--file', type=bool, help='if you need to input from file')
 
-array = parser.parse_args().args
-start = parser.parse_args().s
-end = parser.parse_args().e
+inputs = parser.parse_args()
+array = inputs.args
+start = inputs.s
+end = inputs.e
 flag1 = False
-flag1 = parser.parse_args().chek
+flag1 = inputs.chek
 flag2 = False
-flag2 = parser.parse_args().file
+flag2 = inputs.file
 
 if flag2:
 	file = open('additional/for_first.txt','r')
