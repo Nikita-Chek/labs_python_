@@ -28,7 +28,7 @@ if flag2:
 	array = [int(_) for _ in array]
 	file.close()
 
-def sum(array, start, end):
+def sum_sqrt(array, start, end):
 	sum = 0
 	length = len(array)
 	n_length = int(math.ceil(math.sqrt(length)))
@@ -53,6 +53,6 @@ def sum_chek(array, start, end):
 	return sum
 
 
-print(sum(array, start, end))
+print(sum_sqrt(array, start, end))
 if flag1:
 	print(sum_chek(array, start, end))
