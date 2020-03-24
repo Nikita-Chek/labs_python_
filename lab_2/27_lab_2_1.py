@@ -4,22 +4,28 @@ import sys
 import argparse
 import math
 
-# array = input("input array: ").split()
-# start = int(input("start: "))
-# end = int(input("end: "))
 
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-a', '--args', nargs='+', type=int)
 parser.add_argument('-s', type=int)
 parser.add_argument('-e', type=int)
-parser.add_argument('-c', type=bool)
+parser.add_argument('-c','--chek', type=bool)
+parser.add_argument('-f', '--file', type=bool)
 
 array = parser.parse_args().args
 start = parser.parse_args().s
 end = parser.parse_args().e
-flag = False
-flag = parser.parse_args().c
+flag1 = False
+flag1 = parser.parse_args().chek
+flag2 = False
+flag2 = parser.parse_args().file
+
+if flag2:
+	file = open('additional/for_first.txt','r')
+	array = file.read().split(' ')
+	array = [int(_) for _ in array]
+	file.close()
 
 def sum(array, start, end):
 	sum = 0
@@ -47,5 +53,5 @@ def sum_chek(array, start, end):
 
 
 print(sum(array, start, end))
-if flag:
+if flag1:
 	print(sum_chek(array, start, end))
