@@ -17,9 +17,8 @@ inputs = parser.parse_args()
 array = inputs.args
 start = inputs.s
 end = inputs.e
-flag1 = False
+
 flag1 = inputs.chek
-flag2 = False
 flag2 = inputs.file
 
 if flag2:
