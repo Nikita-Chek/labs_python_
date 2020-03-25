@@ -37,8 +37,16 @@ length = len(string)
 
 
 for _ in range(length):
-	string[_] = sorted(string[_].split())
-	string[_] = list(string[_])
-	for x in range(len(string[_])):
-		string[_][x] = sorted(list(string[_][x]))
-print(string)
+	string[_] = string[_].split()
+	string[_] = merge_sort(string[_])
+string = merge_sort(string)
+
+
+for _ in range(length):
+    string[_] = ' '.join(string[_])
+
+
+file = open('additional/sorted.txt','w')
+for _ in string:
+    file.write(_ + '\n')
+file.close()
