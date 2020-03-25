@@ -1,23 +1,8 @@
 import argparse
 import math
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-n', '--number', type=int)
-parser.add_argument('-c','--chek', type=bool)
-n = int(parser.parse_args().number)
-if n < 0:
-	print("input non negative number")
-
-while n < 0:
-	print("non negative number")
-	n = int(input())
-
-flag = False
-flag = parser.parse_args().chek
-
 fi = (1 + math.sqrt(5)) / 2
 psi = (1 - math.sqrt(5)) / 2
-
 
 def leonardo_number(n):
 	if n == 0:
@@ -32,7 +17,24 @@ def fibonacci(n):
 def leonardo_chek(n):
 	return 2 * fibonacci(n+1) - 1
 
-print(leonardo_number(n))
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-n', '--number', type=int, help='input non negative number')
+parser.add_argument('-c','--chek', type=bool, help='True/False if you need to chek')
+inputs = parser.parse_args()
+
+
+n = inputs.number
+
+if n is None or n < 0:
+	print("input non negative number")
+	n = -1
+	while n < 0:
+		n = int(input())
+
+print('leonardo_number: ', leonardo_number(n))
+
+flag = inputs.chek
 if flag:
 	print(leonardo_chek(n))
