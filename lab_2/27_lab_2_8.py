@@ -23,13 +23,15 @@ n = inputs.number
 
 
 if n is None or n < 0:
-	print("input non negative number")
 	n = -1
 	while n < 0:
-		n = int(input()) 
+		print("input non negative number")
+		n = input()
+		if n.isdigit():
+			n = int(n)
+			break
+		n = -1
 
 print(is_power_of2(n))
-
-flag = inputs.chek
-if flag:
+if inputs.chek:
 	print(is_power_of2_chek(n))
