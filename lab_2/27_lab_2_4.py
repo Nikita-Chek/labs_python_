@@ -10,14 +10,23 @@ with open('additional/array_json.json', 'r') as f:
 	data = json.load(f)
 
 List = data[""]
-#[[2,3], [3, 'er'], [[4], [3,['t',[6,['qw'],5,2]]]], [[[6]]]]
+#List = [[2,3], [3, 3, 'er'], [[4], [3,[[6,[3],5,2]]]], [[[6]]]]
 
 def flatten(List, fl = []):
-	for _ in range(len(List)):
+	for _ in List:
 		if type(List[_]) is list:
 			flatten(List[_], fl)
 		else:
 			fl.append(List[_])
 	return fl
 
-print(flatten(List))
+def gen_flatten(List):
+	for _ in List:
+		if type(_) is list:
+			yield from gen_flatten(_)
+		else:
+			yield _
+l = []
+for _ in gen_flatten(List):
+	l.append(_)
+print(l)
