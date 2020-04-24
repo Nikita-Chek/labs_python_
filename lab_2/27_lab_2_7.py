@@ -18,26 +18,26 @@ def leonardo_chek(n):
 	return 2 * fibonacci(n+1) - 1
 
 
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument('-n', '--number', type=int, help='input non negative number')
+	parser.add_argument('-c','--chek', type=bool, help='True/False if you need to chek')
+	inputs = parser.parse_args()
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-n', '--number', type=int, help='input non negative number')
-parser.add_argument('-c','--chek', type=bool, help='True/False if you need to chek')
-inputs = parser.parse_args()
 
+	n = inputs.number
 
-n = inputs.number
-
-if n is None or n < 0:
-	n = -1
-	while n < 0:
-		print("input non negative number")
-		n = input()
-		if n.isdigit():
-			n = int(n)
-			break
+	if n is None or n < 0:
 		n = -1
+		while n < 0:
+			print("input non negative number")
+			n = input()
+			if n.isdigit():
+				n = int(n)
+				break
+			n = -1
 
-print('leonardo_number:', leonardo_number(n))
+	print('leonardo_number:', leonardo_number(n))
 
-if inputs.chek:
-	print( leonardo_chek(n) )
+	if inputs.chek:
+		print( leonardo_chek(n) )
